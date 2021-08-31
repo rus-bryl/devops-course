@@ -15,5 +15,14 @@ In the end, break everything completely, throw it in the trash and make your own
 Then again, disassemble and improve everything...  
 And this process is endless.  
 I hope you understand why DevOps.  
+  
+In our time, learning is most often self-education. There are pros and cons to this.  
+The plus is that this approach makes you think for yourself. Your own style is being developed.  
+The biggest disadvantage is that it's easy to get lost without experienced menthors.
+You can go in the wrong direction and a lot of time wil be lost.  
+That's what makes a good school different which teaches to think independently and at the same time helps 
+to study the rich expirience of predecessors, saving time.  
+  
+My expectations from this course:  
 
 
