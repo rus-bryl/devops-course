@@ -23,6 +23,10 @@ You can go in the wrong direction and a lot of time wil be lost.
 That's what makes a good school different which teaches to think independently and at the same time helps 
 to study the rich expirience of predecessors, saving time.  
   
-My expectations from this course:  
+### I hope that this course will help me:  
+1. Explore different approaches to solving problems and learn how to choose them optimally in each case.
+2. Learn the best practice of real masters in using tools.
+3. And inthe end, put the whole development cycle in my head, realise my place in it and develop further.  
+
 
 
