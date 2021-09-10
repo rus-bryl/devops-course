@@ -1,0 +1,9 @@
+---
+# tasks file for config_daemon
+- name: App daemon config
+  copy:
+    src: "project.service"
+    dest: "/etc/systemd/system/project.service"
+
+- name: Start Daemon
+  service: name=project state=started

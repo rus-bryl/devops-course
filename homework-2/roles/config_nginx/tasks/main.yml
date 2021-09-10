@@ -1,0 +1,26 @@
+---
+# tasks file for config_nginx
+- name: Nginx config
+  copy:
+    src: "nginx.conf"
+    dest: "/etc/nginx/nginx.conf"
+  register: nginx_config_status
+
+- name: Site config
+  template:
+    src: "project.j2"
+    dest: "/etc/nginx/sites-available/{{ project_name }}"
+
+- name: Site enable
+  file:
+    src: "/etc/nginx/sites-available/{{ project_name }}"
+    dest: "/etc/nginx/sites-enabled/{{ project_name }}"
+    state: link
+  tags: [ app ]
+
+- name: Default Site remove
+  file:    
+    path: "/etc/nginx/sites-enabled/default"
+    state: absent
+  tags: [ app ]
+  notify: Restart Nginx

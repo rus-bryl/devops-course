@@ -1,0 +1,51 @@
+---
+# tasks file for install_app
+- name: Download and unpack app
+  file:
+    path: "/var/www/app"
+    state: directory
+  tags: [ app ]
+
+- name: Install application
+  copy:
+    src: "cow.py"
+    dest: "/var/www/app"
+  # notify: Restart Nginx
+
+- name: Install requirements
+  copy:
+    src: "requirements.txt"
+    dest: "/var/www/app"
+  # notify: Restart Nginx
+
+- name: Install wsgi
+  copy:
+    src: "wsgi.py"
+    dest: "/var/www/app"
+  # notify: Restart Nginx
+
+- name: Install ini
+  copy:
+    src: "project.ini"
+    dest: "/var/www/app"
+  # notify: Restart Nginx
+
+  
+- name: Set ownership
+  file:
+    path: "/var/www/app"
+    state: directory
+    recurse: yes
+    owner: www-data
+    group: www-data
+  tags: [ app ]
+
+# - name: Set permissions for directories
+  # shell: "/usr/bin/find /var/www/html/wordpress/ -type d -not -perm 0750 -print >&1 -exec chmod 750 {} \\;"
+  # changed_when: False
+  # tags: [ wordpress ]
+
+# - name: Set permissions for files
+  # shell: "/usr/bin/find /var/www/html/wordpress/ -type f -not -perm 0640 -print >&1 -exec chmod 640 {} \\;"
+  # changed_when: False
+  # tags: [ wordpress ]

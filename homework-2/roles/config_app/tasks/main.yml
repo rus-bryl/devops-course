@@ -1,0 +1,11 @@
+---
+# tasks file for config_app
+- name: Install app requirements
+  pip:
+    requirements: /var/www/app/requirements.txt
+    virtualenv: /var/www/app
+
+- name: Install uwsgi
+  pip:
+    name: uwsgi
+    virtualenv: /var/www/app

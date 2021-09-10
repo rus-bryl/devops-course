@@ -1,0 +1,27 @@
+---
+# tasks file for config_ssl
+- name: SSL Nginx directory
+  file: path=/etc/nginx/ssl state=directory group=www-data mode=0755
+
+- name: Create private key
+  community.crypto.openssl_privatekey:
+    path: /etc/nginx/ssl/private.pem
+
+- name: Create CSR
+  community.crypto.openssl_csr:
+    path: /etc/nginx/ssl/cert.csr
+    privatekey_path: /etc/nginx/ssl/private.pem
+    common_name: "{{ http_host }}"
+
+- name: Create self-signed sertificate
+  community.crypto.x509_certificate:
+    path: /etc/nginx/ssl/cert.crt
+    privatekey_path: /etc/nginx/ssl/private.pem
+    csr_path: /etc/nginx/ssl/cert.csr
+    provider: selfsigned
+
+- name: Nginx SSL config
+  template:
+    src: "project.j2"
+    dest: "/etc/nginx/sites-available/{{ project_name }}"
+  notify: Restart Nginx
