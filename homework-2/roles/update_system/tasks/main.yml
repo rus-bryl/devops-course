@@ -8,9 +8,9 @@
   apt: name=aptitude update_cache=yes state=latest force_apt_get=yes
 
 - name: Update hosts
-  copy:
-    src: hosts
-    dest: /etc/hosts
-    owner: root
-    group: root
-    mode: '0644'
+  lineinfile:
+    path: /etc/hosts
+    search_string: '127.0.0.1 myvm.local'
+    line: 127.0.0.1 myvm.local
+    state: present
+

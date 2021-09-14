@@ -10,6 +10,7 @@
       - libffi-dev
       - python3-setuptools
       - virtualenv
+      - git
     update_cache: yes
     state: latest
 

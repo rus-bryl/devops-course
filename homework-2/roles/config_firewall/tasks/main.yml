@@ -11,6 +11,12 @@
       - "443"
     jump: ACCEPT
 
+- name: Allow loopback traffic
+  iptables:
+    chain: INPUT
+    in_interface: lo
+    jump: ACCEPT
+
 - name: Allow ESTABLISHED and RELATED connections
   iptables:
     chain: INPUT

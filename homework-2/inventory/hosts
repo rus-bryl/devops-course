@@ -6,3 +6,6 @@ webserver ansible_host=192.168.1.170
 time_zone="Europe/Kiev"
 project_name="project"
 http_host="myvm.local"
+
+repo_url="https://github.com/rus-bryl/python-flask-test-app.git"
+repo_branch="main"
